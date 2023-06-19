@@ -1,0 +1,342 @@
+<%- include('../partials/header')%>
+  <header id="page-header" style="margin-top:61px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center pt-4">
+          <h1>Infrastructure</b></h1>
+          <p><b>You Say ! We Deliver !</b></p>
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="container nav-container">
+          <ol class="">
+            <li class="li-spacing" style="border-right: 0;"><a href="/infrastructure/cranes" <% if(mode=="cranes" ){ %>
+                class="active" <% } %>>RK Cranes</a>
+            </li>
+            <li class="li-spacing "><a href="/infrastructure/transportation" <% if(mode=="transportation" ){ %>
+                class="active" <% } %>>RK Transports</a>
+            </li>
+          </ol>
+
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="abts-container" class="mt-5">
+
+    <% if (!error) { %>
+      <% if(mode=="cranes" ){ %>
+        <section class="container">
+          <div class="row">
+            <!-- sidebar -->
+            <div class="col-lg-4 col-md-12 col-sm-12  sidebar-tab-layout">
+              <nav id="sidebar-abts">
+                <div class="sidebar-abts-header">
+                  <h4 class="text-center text-white">Cranes</h4>
+                </div>
+
+                <ul class="list-unstyled components">
+                  <% categoryNames?.forEach((category)=> { %>
+                    <li class="active text-center">
+                      <a href="/infrastructure/cranes?categoryid=<%= category?.infra_id%>" class="abts-link">
+                        <%= category?.name %>
+                      </a>
+                    </li>
+                    <% });%>
+                </ul>
+
+              </nav>
+            </div>
+            <!-- sidevbar containt -->
+            <div class="col-lg-8 col-md-12 col-sm-12 text-center mt-5">
+              <div id="content-abts">
+                <h2 style="font-size:30px; margin-top:-28px;"><strong>
+                    <%= singleInfra?.name%>
+                  </strong></h2>
+                <div class="title-underline"></div>
+                <p class="abts-description text-left  p-3"
+                  style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                  <%= singleInfra?.info%>
+                </p>
+                <!-- <hr style="background-color: darkorange;"> -->
+              </div>
+              <div class="mt-5">
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="p-5">
+          <div class="container">
+            <h2 style="font-size:30px;" class="my-5"><strong>
+                Equipment Details
+              </strong></h2>
+            <div class="row ">
+              <div class="table-responsive" style="background-color: white;">
+                <table class="table table-bordered ">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Model</th>
+                      <th>Capacity</th>
+                      <th>Boom Length</th>
+                      <th>Quantity</th>
+                      <th>Mast Height</th>
+
+                      <th>Dimensions</th>
+                      <th>Manufacturing Year</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% singleInfra?.infrastructureDetails.forEach((detail,index)=> { %>
+                      <tr>
+                        <td>
+                          <%= index+1 %>
+                        </td>
+                        <td>
+                          <%= detail?.model ? detail?.model :'-' %>
+                        </td>
+                        <td>
+                          <%= detail?.capacity ? detail?.capacity :'-' %>
+                        </td>
+                        <td>
+                          <%= detail?.boom_length ? detail?.boom_length : '-' %>
+                        </td>
+                        <td>
+                          <%= detail?.quantity ? detail?.quantity :'-' %>
+                        </td>
+                        <td>
+                          <%= detail?.mast_height ? detail?.mast_height : '-' %>
+                        </td>
+                        <td>
+                          <%= detail?.dimensions ? detail?.dimensions :'-' %>
+                        </td>
+                        <td>
+                          <%= detail?.manufacturing_year ? detail?.manufacturing_year : '-' %>
+                        </td>
+                      </tr>
+                      <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+        <% } %>
+          <% if(mode=="transportation" ){ %>
+
+            <section class="p-5">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h1 class="cr-font text-center"><strong>Truck</strong></h2>
+                      <div class="title-underline"></div>
+                      <h3 style="display: inline-block;">Categoty :
+                        <span> 10 MT, 16 Mt, 21 MT, Open Trucks</span>
+                      </h3>
+                      <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                        We are well known in the industry for providing Truck all over India. All our
+                        trucks are
+                        well maintained for safe service. Get served with truck services with on-time
+                        deliveries
+                        in all the major areas around the country. A lot of options for transport
+                        companies have
+                        taken over the transport industry. The main cause for this is that these trade
+                        groups
+                        are well capable in dealing with these tasks and they also reduce the total cost
+                        of
+                        carrying together with saving money. They are well informed with the negative
+                        and
+                        positive factors of the Truck service
+                      </p>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <section class="p-5 alternate">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h2 class="cr-font text-center"><strong>Trailor</strong></h2>
+                    <div class="title-underline text-le"></div>
+                    <h3>Categoty :
+                      <span> High Bed, Low bed and Semi Bed</span>
+                    </h3>
+                    <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                      We offer all types of Trailor Services { High Bed, Low bed and Semi Bed} to all
+                      major parts
+                      of India. Our Trailor services is praised by well known brands. Trailor service in
+                      our
+                      country is necessary for all sorts of business groups and this is for the reason
+                      that they
+                      require to move goods. R K Transport is a time-honored Trailor service providing
+                      company
+                      that is affordable for all business levels.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <section class="p-5">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h1 class="cr-font text-center"><strong>Tata Ace, pickup</strong></h2>
+                      <div class="title-underline"></div>
+                      <h3 style="display: inline-block;">Number of Vehicals : :
+                        <span>407</span>
+                      </h3>
+                      <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                        We offer Tata Ace, Pickup, 407 Vehicle for fast and efficient load shifting all
+                        over India.
+                        These vehicles are efficient delivering goods in city and traffic areas. Also
+                        this type of
+                        vehicles are beneficial in transporting of small consignments. Our Vehicles are
+                        covered and
+                        open for safety and handling purposes.
+                      </p>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <section class="alternate">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h2 class="cr-font text-center"><strong>909 Vehicle</strong></h2>
+                    <div class="title-underline text-le"></div>
+
+                    <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                      909 Vehicle are renowned for catering to the transportation needs of the common
+                      man's
+                      businesses, and the 909 Vehicle is no exception. Keeping both intra-city and
+                      intra-city
+                      transportation requirements in mind, this light truck has been optimized to
+                      navigate both hilly
+                      areas as well as narrow congested roads. this 9 tonne truck can be used to carry
+                      loads varying
+                      in dimensions and packaging - right from white goods and processed materials to
+                      vegetable crates
+                      and grocery items.
+                  </div>
+                </div>
+
+              </div>
+            </section>
+            <section class="p-5">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h1 class="cr-font text-center"><strong>Container Vehicle</strong></h2>
+                      <div class="title-underline"></div>
+
+                      <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                        In order to cater the diversified demands of our clients, we have been able to
+                        provide a
+                        unique range of Heavy Container Vehicle those have High load bearing capacity,
+                        Rugged design
+                        and Hassle-free performance. Experience the service by highly professional
+                        Container
+                        transporter. Here, the clients get real-time pricing. Get served with Container
+                        Vehicle
+                        services with on-time deliveries in all the major areas around the country.
+                      </p>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <section class="p-5 alternate">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h2 class="cr-font text-center"><strong>1109 Vehicle</strong></h2>
+                    <div class="title-underline text-le"></div>
+
+                    <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                      1109 Vehicle are renowned for sturdiest chassis frame, improved load body and
+                      seating arrangements available in varied wheel base options for customized
+                      applications. Keeping both intra-city and intra-city transportation requirements
+                      in mind, this light truck has been optimized to navigate both hilly areas as well
+                      as narrow congested roads. These truck can be used to carry loads varying in
+                      dimensions and packaging - right from white goods and processed materials to
+                      vegetable crates and grocery items.
+                  </div>
+                </div>
+
+              </div>
+            </section>
+            <section class="p-5">
+              <div class="container">
+                <div class="row">
+                  <div>
+                    <h1 class="cr-font text-center"><strong>ODC Consignment</strong></h2>
+                      <div class="title-underline"></div>
+
+                      <p style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                        In order to cater the diversified demands of our clients, we have been able to
+                        provide a
+                        unique range of Heavy Container Vehicle those have High load bearing capacity,
+                        Rugged design
+                        and Hassle-free performance. Experience the service by highly professional
+                        Container
+                        transporter. Here, the clients get real-time pricing. Get served with Container
+                        Vehicle
+                        services with on-time deliveries in all the major areas around the country.
+                      </p>
+                      <h3>Note : <span> As per Costumer Requirements </span></h3>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <% } %>
+              <% } else { %>
+                <div class="error-message text-center">
+                  <p><strong>
+                      Resource not found !
+                    </strong>
+                  </p>
+                </div>
+                <% } %>
+
+  </section>
+
+
+
+  <%- include('../partials/footer')%>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="/js/jquery.3.5.1.js"></script>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+    </body>
+
+    </html>

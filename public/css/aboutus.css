@@ -1,0 +1,350 @@
+@import url(./fonts.css);
+@import url(./globals.css);
+@import url(./navbar.css);
+@import url(./footer.css);
+.page-header {
+  height: 245px;
+  margin-top: 61px;
+  background: linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("../images/urbanBg2.jpeg");
+  /* background-position: 0 -200px; */
+  object-fit: cover;
+  color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 50px;
+}
+
+.page-header-res {
+  height: 300px;
+  margin-top: 61px;
+  background: linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("../images/urbanBg2.jpeg");
+  /* background-position: 0 -200px; */
+  object-fit: cover;
+  color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 50px;
+}
+
+.title-underline {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  margin-bottom: .8rem;
+  margin-top: .3rem;
+  background: var(--primaryColor);
+}
+
+.alternate {
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.header-spacing {
+  padding-top: 24px;
+}
+
+.nav-2 {
+  height: px;
+}
+
+/* navbar-2 */
+
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  font-size: 1.5rem;
+  padding: 0px;
+}
+
+ol li {
+  border-right: 1px solid #fff;
+}
+
+ol li:last-child {
+  border-right: 1px solid transparent;
+}
+
+ol li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ol li a:hover {
+  color: darkorange;
+  text-decoration: none;
+}
+
+
+
+ol li a:hover:not(.active) {
+  color: #d2d2d2;
+}
+.active{
+  color:darkorange
+}
+
+/* abouts us Stylle------------------------------------------------------------------------------------------------------------------ */
+
+@keyframes greentruckAnimation {
+  from {
+    margin-left: 0px;
+    max-width: 250px;
+  }
+  to {
+    margin-left: 1500px;
+    max-width: 250px;
+  }
+}
+
+.abtus-title {
+  margin-top: 70px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.abt-details-title {
+  text-align: center;
+}
+
+.abtus-profile-inside {
+  margin: 20px 50px 0px 50px;
+  text-align: center;
+}
+
+/* About us information section------------------------------------------------------------------------------------------------------- */
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+.abts-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 1.7em;
+  color: #999;
+}
+
+.abts-link, .abts-link:hover, .abts-link:focus {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.wrapper-abts {
+  padding-top: 70px;
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar-abts {
+  min-width: 250px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+
+  transition: all 0.3s;
+}
+
+#sidebar-abts a, #sidebar-abts a:hover, #sidebar-abts a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+#sidebar-abts.active {
+  margin-left: -250px;
+}
+
+#sidebar-abts .sidebar-abts-header {
+  padding: 20px;
+  background: darkorange;
+}
+
+#sidebar-abts ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar-abts ul li a {
+  padding: 10px;
+  font-size: 1rem;
+  display: block;
+  border-bottom: 1px solid darkOrange;
+}
+
+/* start management area*/
+
+.management-spacing {
+  padding: 3rem;
+}
+
+.management-area {
+  padding: 7rem 2rem
+}
+
+.management-area .management-title {
+  padding: 0rem 14rem
+}
+
+.management-area .management-title h1 {
+  font-size: 35px;
+}
+
+.management-area .management {
+  background: rgba(248, 252, 253, 0.973);
+  padding: 0;
+  width: 340px;
+  margin: .5rem .5rem;
+  transition: box-shadow .7s ease;
+}
+
+.management-area .management:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.management-card {
+  margin-bottom: 16px;
+}
+
+.management-img {
+  width: 340px;
+  height: 250px;
+  background-position: center;
+}
+
+.read-more:hover {
+  transform: scale(1.1);
+  transition: transform .5s ease;
+}
+
+/* mission vision */
+.mission-vision-img{
+  width: 200px;
+  height: 200px;
+}
+
+/* milestone */
+
+.milestone-spacimg {
+  padding: 3rem;
+}
+
+.milestone-row:hover {
+  transform: scaleX(1.1);
+  box-shadow: var(--box-shadow);
+  margin: 15px;
+  z-index: 10;
+  transition: all .5s ease-in-out;
+}
+
+
+
+@media only screen and (max-width: 1600px) {
+  .page-header {
+    height: 180px;
+    margin-top: 61px;
+    padding-top: 35px;
+  }
+  .page-header-res {
+    height: 245px;
+    margin-top: 61px;
+    padding-top: 35px;
+  }
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+  .page-header-res h1 {
+    font-size: 1.7rem;
+  }
+/* history */
+.cr-font{
+  font-size: 1.7rem;
+}
+  /* mission vision */
+  .mission-vision-img{
+    width: 175px;
+    height: 175px;
+  }
+  /* milestone */
+  .milestone-spacimg {
+    padding: 2rem;
+  }
+  .milestone-row:hover {
+    margin: 12px;
+    z-index: 10;
+  }
+
+  /* management team */
+  .management-spacing {
+    padding: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {}
+
+/*  responsive */
+
+@media only screen and (max-width: 450px) {
+  .page-header {
+    padding-top: 40px;
+  }
+  .page-header-res {
+    height: 260px;
+   
+  }
+  /* sidebar */
+  #content-abts {
+    margin-top: 3rem;
+  }
+  ol li {
+    border-right: none;
+  }
+  #sidebar-abts {
+   margin: auto;
+  }
+  .header-spacing {
+    padding-top: 8px;
+  }
+  .header-spacing h1 {
+    font-size: 32px;
+  }
+  .header-spacing p {
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom: 0px;
+  }
+
+  /* history */
+  
+
+  /* milestone */
+  .milestone-spacimg {
+    padding: 0rem;
+  }
+  .nav-2-list li a {
+    font-size: 18px;
+  }
+  /* managemebt */
+  .management-spacing {
+    padding: .2rem;
+  }
+  .management-area {
+    padding: 2rem .5rem
+  }
+  .management-area .management-title {
+    padding: 0rem 4rem
+  }
+  .management-area .management-title h1 {
+    font-size: 25px;
+  }
+  .management-area .management {
+    background: rgba(248, 252, 253, 0.973);
+    padding: 0;
+    width: 100%;
+    margin: .5rem .5rem;
+    transition: box-shadow .7s ease;
+  }
+  .management-img {
+    width: 100%;
+    height: 174px;
+  }
+}

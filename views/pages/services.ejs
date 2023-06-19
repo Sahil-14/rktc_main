@@ -1,0 +1,101 @@
+<%- include('../partials/header')%>
+  <!-- page haeder -->
+  <header id="page-header" style="margin-top:61px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center pt-4">
+          <h1>
+            Service
+          </h1>
+          <p><b>You say ! We deliver !</b></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- page containt -->
+  <section id="abts-container" class='mt-5'>
+    <div class="container">
+      <div class="container">
+        <% if (!error) { %>
+          <div class="row">
+            <!-- sidebar -->
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <nav id="sidebar-abts">
+                <div class="sidebar-abts-header">
+                  <h4 class="text-center text-white">Services</h4>
+                </div>
+                <ul class="list-unstyled components">
+                  <% names?.forEach(service=> { %>
+                    <li class="active text-center">
+                      <a href="/services?id=<%= service?.service_id %>" class="abts-link">
+                        <%= service?.title %>
+                      </a>
+                    </li>
+                    <% }); %>
+                </ul>
+              </nav>
+            </div>
+            <!-- sidevar containt -->
+            <div class="col-lg-8 col-md-12 col-sm-12 text-center">
+              <div id="content-abts" class="mt-5">
+                <h2 style="font-size:30px; margin-top:-28px;"><strong>
+                    <%= serviceInfo?.title %>
+                  </strong></h2>
+                <div class="title-underline"></div>
+                <p class="abts-description text-left" style="white-space: no-wrap;hyphens: auto;word-break: break-all;">
+                  <%= serviceInfo?.l_dec %>
+                </p>
+                <hr style="background-color: darkorange;">
+              </div>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <% if (serviceInfo?.highlights?.length> 1) { %>
+              <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+                <h1>Highlights</h1>
+                <div class="title-underline "></div>
+                <img src="/images/trailers_within_india.png" width="200px" height="200px"
+                  class="rounded mt-5 highlights-img" alt="">
+              </div>
+              <div class="col-lg-8 col-md-12 col-sm-12 highlights">
+                <ul class="highlight-list">
+                  <% serviceInfo?.highlights?.forEach((highlight)=> { %>
+                    <li class="p-3 m-4 text-center">
+                      <%= highlight?.name %>
+                    </li>
+                    <% }) %>
+                </ul>
+              </div>
+              <% } %>
+          </div>
+          <% } else { %>
+            <!-- Display error message -->
+            <div class="error-message text-center">
+              <p><strong>
+                  Resource not available !
+                </strong>
+
+              </p>
+            </div>
+            <% } %>
+      </div>
+    </div>
+  </section>
+
+
+
+  <%- include('../partials/footer')%>
+
+    <script src="/js/jquery.3.5.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+    </body>
+
+    </html>

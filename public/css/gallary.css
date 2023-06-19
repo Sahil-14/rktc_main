@@ -1,0 +1,25 @@
+@import url(./fonts.css);
+@import url(./globals.css);
+
+@import url(./navbar.css);
+@import url(./footer.css);
+
+.filter-btn {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  background: var(--primaryColor);
+  padding: 0.3rem 0.6rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 16px;
+  font-size: 1rem;
+}
+
+.filter-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}

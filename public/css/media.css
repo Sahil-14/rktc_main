@@ -1,0 +1,210 @@
+@import url(./fonts.css);
+@import url(./globals.css);
+@import url(./navbar.css);
+@import url(./footer.css);
+/* p {
+  font: normal  20px var(--roboto);
+} */
+
+/* index.css*/
+
+.page-header {
+  height: 250px;
+  background: linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url("../images/urbanBg2.jpeg");
+  /* background-position: 0 -200px; */
+  object-fit: cover;
+  color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 5px;
+}
+
+.media-spacing {
+  padding: 3rem;
+}
+
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  font-size: 1.5rem;
+  padding: 0px;
+}
+
+ol li {
+  border-right: 1px solid #fff;
+}
+
+ol li:last-child {
+  border-right: 1px solid transparent;
+}
+
+ol li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ol li a:hover {
+  color: darkorange;
+  text-decoration: none;
+}
+
+.active {
+  color: darkorange;
+}
+
+ol li a:hover:not(.active) {
+  color: #d2d2d2;
+}
+
+.media-footer {
+  background-color: transparent;
+}
+
+.title-underline {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  background: var(--primaryColor);
+}
+
+hr {
+  background-color: darkOrange;
+}
+
+/* card */
+.blog-img{
+  width: 400px;
+  height: 320px;
+}
+
+.cr-card h5 a {
+  text-decoration: none;
+  color: #000;
+}
+
+.cr-card:hover {
+  transform: scaleX(1.03);
+  box-shadow: var(--box-shadow);
+  filter: grayscale(100%);
+  transition: all .7s ease-in-out;
+}
+
+.cr-card h5 a:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+.blog-spacing{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* start achivment section */
+
+.achivement-row div {
+  padding: .5rem
+}
+
+.achivement-row:hover {
+  transform: scaleX(1.1);
+  box-shadow: var(--box-shadow);
+  margin: 15px;
+  z-index: 10;
+  transition: all .5s ease-in-out;
+}
+
+/* start gallary area*/
+
+
+.gallry-img {
+  width: 340;
+  height: 260;
+}
+.project-area .button-group button {
+  background: transparent;
+  border: none;
+  font: normal 500 16px/130px apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+.project-area .button-group button+button {
+  /* button from second element*/
+  padding-left: 3rem;
+}
+
+.project-area .grid .our-project>.title h4 {
+  font: normal 700 25px/12px apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.project-area .grid .our-project .img {
+  margin-bottom: 16px;
+}
+
+.project-area .grid .our-project .img a:hover img {
+  filter: brightness(1.1) drop-shadow(1px 8px 30px #b1afaf)
+}
+
+.active {
+  color: darkorange;
+}
+.model-spacing{
+  padding: 3rem;
+}
+
+@media only screen and (max-width: 1600px) {
+  .page-header {
+    height: 245px;
+    margin-top: 61px;
+    padding-top: 20px;
+  }
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+  .blog-spacing{
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .blog-img{
+    width: 100%;
+    height: auto;
+  }
+  .page-header {
+    height: 280px;
+  }
+  .blog-img {
+    width: 100%;
+    height: 186px;
+  }
+  ol {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  ol li {
+    border-right: none;
+  }
+  .media-spacing {
+    padding: .3rem;
+  }
+  .gallry-img {
+    width: 100%;
+    height: 240px;
+  }
+  .project-area .button-group button+button {
+    padding-left: 0rem;
+  }
+  .project-area .button-group button {
+    font: normal 300 16px/40px apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+  }
+  .model-spacing{
+    padding: 1.2rem;
+  }
+}

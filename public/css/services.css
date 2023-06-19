@@ -1,0 +1,142 @@
+@import url(./fonts.css);
+@import url(./globals.css);
+
+
+@import url(./navbar.css);
+@import url(./footer.css);
+
+
+
+
+.title-underline{
+  width: 5rem;
+  height: 5px;
+ margin: 0 auto;
+ margin-bottom:2rem;
+  background: var(--primaryColor);
+  
+}
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper-abts {
+  padding-top: 70px;
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar-abts {
+  min-width: 250px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+  /* min-height: 300px;
+  max-height: 300px; */
+  transition: all 0.3s;
+  
+}
+
+#sidebar-abts a,
+#sidebar-abts a:hover,
+#sidebar-abts a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+#sidebar-abts.active {
+  margin-left: -250px;
+
+}
+
+#sidebar-abts .sidebar-abts-header {
+  padding: 20px;
+  background:  darkorange;
+
+}
+
+
+#sidebar-abts ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar-abts ul li a {
+  padding: 10px;
+  display: block;
+  border-bottom: 1px solid darkOrange;
+  font-size: 1rem;
+}
+
+
+/* devider*/
+
+
+
+.services-heading h3{
+  
+}
+
+
+/* // hights */
+
+.highlights ul {
+  list-style-type: none;
+  padding-inline-start: 40px;
+}
+.highlights .highlight-list{
+  padding: 3rem;
+  margin: 0.5rem;
+}
+
+.highlights ul li{
+  background:rgba(248,252,253,0.973);
+  padding: 2rem 0;
+  margin: 2.5rem .5rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+ 
+}
+
+.highlights ul li:hover{
+  
+  transform: scale(1.1);
+  transition: transform .7s ease ;
+}
+
+.highlights-img{
+  border-radius: 50%;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 1600px) {
+
+  #page-header{
+    height: 180px;
+    margin-top: 61px;
+    padding-top: 35px;
+  }
+  #page-header h1{
+   font-size: 1.7rem;
+  }
+
+}
+
+
+@media only screen and (max-width: 450px) {
+
+  #sidebar-abts {
+    
+    margin: auto;
+  }
+  .highlights .highlight-list{
+    padding: .3rem;
+    margin: 0.2rem;
+  }
+  
+}
+
+
+

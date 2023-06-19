@@ -1,0 +1,223 @@
+<%- include('../partials/header')%>
+    <header id="page-header" style="margin-top:61px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto text-center pt-4">
+                    <h1>Contact Us</b></h1>
+                    <p><b>You Say ! We Deliver !</b></p>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- Contact section -->
+    <section id="contact" class="py-5 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-3">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h4><i class="far fa-handshake"></i>Get in touch</h4>
+                            <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Address</h4>
+                            <p>Sr. No 16,Vitthal Prasad,At-Bhilarewadi,Post-Katraj,Tal.Haveli,Pune-411046</p>
+                            <h4> <i class="fas fa-envelope"></i>Email</h4>
+                            <p>Vivek@rktcind.com</p>
+                            <p>info@rktcind.com</p>
+                            <h4> <i class="fa fa-phone" aria-hidden="true"></i> Phone</h4>
+                            <p>982257906</p>
+                            <p>7620545354</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 pt-3">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h3 class="text-center">Please fill out this form to contact us.</h3>
+                            <hr>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First name"
+                                                name="First_name" id="First_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last name"
+                                                name="Last_name" id="Last_name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email" name="Email"
+                                                id="Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="Phone no."
+                                                name="Phone_number" id="Phone_number" maxlength="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Message" rows="6" name="message"
+                                                id="message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" id="submit"
+                                            class="btn btn-outline-success btn-block">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="p-3 alternate">
+        <div class="container">
+            <div>
+                <h2 class="cr-font"><strong>Branch Office</strong></h2>
+                <div class="title-underline"></div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-sm-12 col-lg-6 pt-3">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Address</h4>
+                            <p>Sr. No 553,At Post Shirwal-Shindewadi,Tal.Khandala,Dist.Satara-412801</p>
+                            <h4> <i class="fa fa-phone" aria-hidden="true"></i> Mobile No.</h4>
+                            <p>9021225454</p>
+                            <p>9822557906</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-6 pt-3">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Address</h4>
+                            <p>Shop No.2 & 3,Khed Shivapur Bhagu,Tal.Haveli,Dist.Pune-412205</p>
+                            <h4> <i class="fa fa-phone" aria-hidden="true"></i> Mobile No.</h4>
+                            <p>9922557906</p>
+                            <p>9921920654</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div id="map" class="mt-5"></div>
+    <%- include('../partials/footer')%>
+
+
+        <!-- jQuery . -->
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script>
+            function validateEmail($email)
+            {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return emailReg.test($email);
+            }
+            $("#submit").on('click', function (event)
+            {
+                event.preventDefault();
+                var $First_name = $('#First_name').val();
+                var $Last_name = $('#Last_name').val();
+                var $Email = $('#Email').val();
+                var $Phone_number = $('#Phone_number').val();
+                var $message = $('#message').val();
+
+
+                if ($First_name != '') {
+                    if ($Last_name != '') {
+                        if ($Email != '' && validateEmail($Email)) {
+                            if ($Phone_number != '' && $Phone_number.match('[0-9]{10}')) {
+                                if ($message != '') {
+                                    var $route = '/contact-us';
+                                    var data = {
+                                        First_name: $First_name,
+                                        Last_name: $Last_name,
+                                        Email: $Email,
+                                        Phone_number: $Phone_number,
+                                        message: $message
+                                    }
+                                    console.log("from js", data)
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: $route,
+                                        data: data,
+                                        success: function ()
+                                        {
+                                            location.reload()
+                                        }
+                                    });
+
+                                } else {
+                                    alert("please fill message");
+                                }
+                            } else {
+                                alert("please fill valid phone number");
+                            }
+                        } else {
+                            alert("please fill email with proper format");
+                        }
+
+                    } else {
+                        alert("please fill last name");
+                    }
+                } else {
+                    alert("please fill first name");
+                }
+
+            });
+        </script>
+
+        <!--The div element for the map -->
+
+        <script>
+            // Initialize and add the map
+            function initMap()
+            {
+                // The location of Uluru
+                var uluru = { lat: 18.393756, lng: 73.856691 };
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('map'), { zoom: 13, center: uluru });
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({ position: uluru, map: map, title: "RKTC" });
+            }
+        </script>
+        <!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPovi8jPa1hqtnt7_0Gdis-DSRAhepS4&callback=initMap">
+            </script>
+
+        <!-- bootsrap . -->
+        <script src="/js/bootstrap.min.js"></script>
+
+
+        <script src="/js/main.js"></script>
+        <script src="/js/footer.js"></script>
+
+        <!-- owl corousel . -->
+        <script src="/js/owl.carousel.min.js"></script>
+
+        </body>
+
+        </html>

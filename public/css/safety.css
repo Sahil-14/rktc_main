@@ -1,0 +1,65 @@
+@import url(./fonts.css);
+@import url(./globals.css);
+
+
+@import url(./navbar.css);
+@import url(./footer.css);
+
+
+/* p {
+  font: normal  20px var(--roboto);
+} */
+/* index.css*/
+#page-header{
+  height: 245px;
+  background:  linear-gradient(  rgba(0,0,0,.8),rgba(0,0,0,.5)),url("../images/urbanBg2.jpeg")   ;
+object-fit: cover;
+  color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 50px;
+}
+.title-underline{
+    width: 7rem;
+    height: 5px;
+
+   margin-bottom:2rem;
+    background: var(--primaryColor);
+    
+  }
+.alternate{
+    background-color: rgba(245, 245, 245, 1);
+}
+.cr-font{
+  font-size: 2rem;
+}
+.certificate-img{
+    width: 180px;
+    height: 260px;
+    border: 1px solid #000;
+    padding: .3rem;
+}
+
+.certificate-container:hover img{
+    width: 380px;
+    height: 556px;
+    filter: brightness(1);
+    transition: all .5s ease;
+}
+
+
+
+@media only screen and (max-width: 1600px) {
+
+  #page-header{
+    height: 180px;
+    margin-top: 61px;
+    padding-top: 35px;
+  }
+  #page-header h1{
+   font-size: 1.7rem;
+  }
+ .cr-font{
+   font-size: 1.7rem;
+ }
+
+}

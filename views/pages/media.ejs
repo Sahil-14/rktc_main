@@ -1,0 +1,92 @@
+<%- include('../partials/header')%>
+
+  <header id="page-header" style="margin-top:61px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center pt-5">
+          <h1>
+            Gallery
+          </h1>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <% if (!error) { %>
+    <div class="container gallery-area">
+      <div class="button-group text-left mb-3 mb-3">
+        <button type="button" class="filter-btn gallery-active" data-filter="" id="btn-1">All</button>
+        <%if(categories?.length> 0){ %>
+          <% categories?.forEach((category,index)=> { %>
+
+            <button type="button" class="ml-2 mt-3 filter-btn"
+              data-filter=".<%= category?.toUpperCase().replace(/ /g,'')%>">
+              <%= category%>
+            </button>
+
+            <% }) %>
+              <% } %>
+      </div>
+
+      <div class="row grid">
+        <% if(images?.length==0){ %>
+          <h4>Images not found.</h4>
+          <% }else{ %>
+            <% images?.forEach((image)=> { %>
+              <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 <%= image?.category?.toUpperCase().replace(/ /g,'')%>">
+                <a class="test-popup-link" href="<%= image?.image_url%>">
+                  <img height="200" src="<%= image?.image_url%>" class="w-100 shadow-1-strong rounded mb-4"
+                    alt="Boat on Calm Water" />
+                </a>
+              </div>
+              <% }) %>
+                <% } %>
+      </div>
+    </div>
+    <% } else { %>
+      <div class="error-message text-center">
+        <p><strong>
+            Resource not available !
+          </strong>
+        </p>
+      </div>
+      <%}%>
+
+
+
+        <%- include('../partials/footer')%>
+
+          <script src="/js/jquery.3.5.1.js"></script>
+          <script src="/js/bootstrap.min.js"></script>
+          <script src="/js/main.js"></script>
+          <script src="/js/footer.js"></script>
+
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+          <script src="/js/isotope.min.js"></script>
+          <script>
+
+            let $btns = $('.gallery-area .button-group button');
+
+
+            $btns.click(function (e)
+            {
+
+              $('.gallery-area .button-group button').removeClass('active'); // removing active from all
+              e.target.classList.add('active');  // adding active to selected button
+
+              let selector = $(e.target).attr('data-filter');  // getting data-filter of selected button
+              $('.gallery-area .grid').isotope({
+                filter: selector
+              });
+
+              return false;
+            })
+
+
+
+          </script>
+          </body>
+
+          </html>
