@@ -2,47 +2,28 @@ if (process.env.NODE_ENV !== 'production')
 {
   require('dotenv').config();
 }
-
 const express = require('express');
 const cors = require("cors");
 require('express-async-errors');
-const cookieSession = require('cookie-session');
 const PORT = process.env.PORT || 5500
+const URL = process.env.URL || 'http://localhost:5500'
 //routes
-const contactRouter = require('./src/routes/contact.routes')
 const { serviceRouter } = require('./src/routes/services.routes')
 const { infrastructureRouter } = require('./src/routes/infrastructure.routes')
 const { mediaRouter } = require('./src/routes/media.routes')
 
 const { errorHandler } = require('./src/middleware/errorHandler')
 const db = require("./src/models");
-
-// var moment = require('moment');
 const axios = require('axios')
-// const { NotFoundError } = require('./src/error')
-
-
 const app = express();
 var corsOptions = {
-  origin: process.env.URL
+  origin: URL
 };
-
 app.use(cors(corsOptions));
 db.sequelize.sync();
-app.set('trust proxy', true);
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(
-
-  cookieSession({
-    signed: false,
-    secure: false
-  })
-);
-
-//use routes
-// app.use(contactRouter);
 app.use(serviceRouter);
 app.use(infrastructureRouter);
 app.use(mediaRouter)
@@ -56,11 +37,11 @@ app.get('/', async (req, res) => {
   let footerServices = []
   try
   {
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
     footerServices = serviceNames.data.services
-    const serviceResponse = await axios.get(`${process.env.URL}/api/services/`);
+    const serviceResponse = await axios.get(`${URL}/api/services/`);
     services = serviceResponse.data.services
-    const infraResponse = await axios.get(`${process.env.URL}/api/infrastructure/`);
+    const infraResponse = await axios.get(`${URL}/api/infrastructure/`);
     infras = infraResponse.data.infrastructure
     res.render("pages/index", {
       services,
@@ -86,8 +67,8 @@ app.get('/aboutus', async (req, res) => {
   let footerServices = []
   try
   {
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
-    footerServices = serviceNames?.data.services
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
+    footerServices = serviceNames.data.services
     res.render("pages/about", {
       page: 2,
       error: null,
@@ -111,13 +92,13 @@ app.get('/services', async (req, res) => {
   let names = [];
   try
   {
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
-    names = serviceNames?.data.services
-    footerServices = serviceNames?.data.services
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
+    names = serviceNames.data.services
+    footerServices = serviceNames.data.services
     var singleService = null;
     if (id)
     {
-      const serviceData = await axios.get(`${process.env.URL}/api/service/${id}`);
+      const serviceData = await axios.get(`${URL}/api/service/${id}`);
       singleService = serviceData.data.service
     } else
     {
@@ -126,7 +107,7 @@ app.get('/services', async (req, res) => {
       {
         firstId = names[0].service_id
       }
-      const serviceData = await axios.get(`${process.env.URL}/api/service/${firstId}`);
+      const serviceData = await axios.get(`${URL}/api/service/${firstId}`);
       singleService = serviceData.data.service
     }
 
@@ -158,14 +139,14 @@ app.get('/infrastructure/:mode', async (req, res) => {
   let footerServices = [];
   try
   {
-    var categoryNames = await axios.get(`${process.env.URL}/api/infrastructure/names/`)
-    categoryNames = categoryNames?.data.categoryName
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
-    footerServices = serviceNames?.data.services
+    var categoryNames = await axios.get(`${URL}/api/infrastructure/names/`)
+    categoryNames = categoryNames.data.categoryName
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
+    footerServices = serviceNames.data.services
     console.log(categoryNames)
     if (id)
     {
-      const infraData = await axios.get(`${process.env.URL}/api/infrastructure/${id}`);
+      const infraData = await axios.get(`${URL}/api/infrastructure/${id}`);
       singleInfra = infraData.data.infrastructure
     } else
     {
@@ -175,7 +156,7 @@ app.get('/infrastructure/:mode', async (req, res) => {
         firstId = categoryNames[0].infra_id
       }
 
-      const infraData = await axios.get(`${process.env.URL}/api/infrastructure/${firstId}`);
+      const infraData = await axios.get(`${URL}/api/infrastructure/${firstId}`);
       singleInfra = infraData.data.infrastructure
     }
 
@@ -207,10 +188,10 @@ app.get('/media', async (req, res) => {
   try
   {
 
-    const media = await axios.get(`${process.env.URL}/api/gallery/`);
-    const categories = media?.data?.categories;
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
-    footerServices = serviceNames?.data?.services
+    const media = await axios.get(`${URL}/api/gallery/`);
+    const categories = media.data.categories;
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
+    footerServices = serviceNames.data.services
     const images = media.data.images
     res.render('./pages/media', {
       page: 5,
@@ -236,9 +217,9 @@ app.get('/contact-us', async function (req, res) {
   let footerServices = []
   try
   {
-    const serviceNames = await axios.get(`${process.env.URL}/api/services/names`);
+    const serviceNames = await axios.get(`${URL}/api/services/names`);
 
-    footerServices = serviceNames?.data?.services
+    footerServices = serviceNames.data.services
     res.render('./pages/contact-us', {
       page: 6,
       footerServices
@@ -255,9 +236,10 @@ app.get('/contact-us', async function (req, res) {
 
 app.all('*', async (req, res) => {
   res.redirect('/');
-  // res.render('pages/error')
 });
-app.use(errorHandler);
+// app.use(errorHandler);
 app.listen(PORT, () => {
   console.log("server running");
 })
+// https://www.kalkifashion.com/in/golden-yellow-silk-patola-printed-bandi-with-kurta-set.html
+// https://www.kalkifashion.com/in/black-festive-textured-bandi-jacket-set-in-art-silk-with-thread-embroidery-and-front-zip.html

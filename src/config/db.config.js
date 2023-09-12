@@ -16,11 +16,12 @@
 //   }
 // };
 
+
 module.exports = {
-  HOST: "localhost",
-  USER: "ghbgdoef_ashwathama",
-  PASSWORD: "gTP2e2e2UjrwaFa",
-  DB: "ghbgdoef_rktc_main",
+  HOST: "rktc.ca821kwblmlu.ap-south-1.rds.amazonaws.com",
+  USER: "admin",
+  PASSWORD: "admin12345",
+  DB: "rktc_main",
   dialect: "mysql",
   pool: {
     max: 5,
@@ -29,3 +30,4 @@ module.exports = {
     idle: 10000
   }
 };
+
